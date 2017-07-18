@@ -1,24 +1,9 @@
 # Orvibo::Ruby
 
-To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'orvibo-ruby'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install orvibo-ruby
+This is a branch of https://github.com/Corona4456/orvibo-ruby
+It seems it was never completed, or pushed to rubygems, as its not a known gem.
+I'm fiddling with it for my own purposes. Its unlikely I'll release in gem form,
+loading a few files is fine for my project...
 
 ## Usage
 
@@ -32,14 +17,6 @@ Or install it yourself as:
  s = m.discoverOutlets()["192.168.0.241"]
  m.subscribe(s); m.powerOn(s); sleep 5; m.subscribe(s); m.powerOff(s)
 ```
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/Corona4456/orvibo-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
 
 ## License
 
