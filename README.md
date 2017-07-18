@@ -22,8 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+``` require_relative 'lib/orvibo/util/string'
+ require_relative 'lib/orvibo/util/hex'
+ require_relative 'lib/orvibo/s20_outlet'
+ require_relative 'lib/orvibo/s20_outlet_manager'
 
+ m = Orvibo::S20OutletManager.new
+ #m.discoverOutlets()
+ s = m.discoverOutlets()["192.168.0.241"]
+ m.subscribe(s); m.powerOn(s); sleep 5; m.subscribe(s); m.powerOff(s)
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

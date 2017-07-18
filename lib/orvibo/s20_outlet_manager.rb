@@ -4,6 +4,7 @@ require 'time'
 require 'timeout'
 require 'pp'
 require 'ostruct'
+require 'socket'
 
 module Orvibo
 
@@ -36,7 +37,7 @@ module Orvibo
     BUFFER_SIZE = 500
     WRITE_OUTLET_CODE = "746D"
     NULL_MAC = "000000000000"
-    DEFAULT_BROADCAST_ADDRESS = "192.168.1.255"
+    DEFAULT_BROADCAST_ADDRESS = "192.168.0.255"
     DEFAULT_TIMEOUT = 2
     GLOBAL_DISCOVERY_MSG_SIZE = 42
     DISCOVERY_MSG_SIZE = 42
