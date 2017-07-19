@@ -1,7 +1,7 @@
 # Orvibo-s20 for Ruby
 
 This is a fork of https://github.com/Corona4456/orvibo-ruby <br />
-It seems it was never completed, or pushed to rubygems, as its not listed gem.
+Its readme was incorrect/outdated, as the installation instructions fail, the gem was never published to RubyGems.
 
 ## Build and Install Gem
 
@@ -32,11 +32,12 @@ manager.subscribe(socket); manager.powerOn(socket); sleep 5; manager.subscribe(s
 
 ## Subscription Details / Quirks
 
-Its possible to get away without calling subscribe on the socket before each call, but it seems more reliable to do so. <br />
-Without a valid subscription, the Orvibo will ignore any request. For my (single) use case, the few seconds <br />
-required to establish a fresh subscription are fine. If you are using an Orvibo to cycle something on and off at very sort intervals <br />
-I'd suspect the relay in the Orvibo would give out, and your connected appliance may be unhappy as well! 
-I'm sure there is a more exact science to it, but as stated my use case does not call for it, and it wasnt implemented in the original project, so I have not investigated. <br />
+<p>Its possible to get away without calling subscribe on the socket before each call, but it seems more reliable to do so. </p>
+
+<p>Without a valid subscription, the Orvibo will ignore any request. For my (single) use case, the few seconds required to establish a fresh subscription are fine. If you are using an Orvibo to cycle something on and off at very sort intervals.
+I'd suspect the relay in the Orvibo would give out, and your connected appliance may be unhappy as well! </p>
+
+<p>I'm sure there is a more exact science to it, but as stated my use case does not call for it, and it wasnt implemented in the original project, so I have not investigated. </p>
 
 ## License
 
