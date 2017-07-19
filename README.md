@@ -1,21 +1,24 @@
-# Orvibo::Ruby
+# Orvibo-s20 for Ruby
 
-This is a branch of https://github.com/Corona4456/orvibo-ruby
-It seems it was never completed, or pushed to rubygems, as its not a known gem.
-I'm fiddling with it for my own purposes. Its unlikely I'll release in gem form,
-loading a few files is fine for my project...
+This is a fork of https://github.com/Corona4456/orvibo-ruby <br />
+It seems it was never completed, or pushed to rubygems, as its not listed gem.
 
-## Usage
+## Build and Install Gem
 
-``` require_relative 'lib/orvibo/util/string'
- require_relative 'lib/orvibo/util/hex'
- require_relative 'lib/orvibo/s20_outlet'
- require_relative 'lib/orvibo/s20_outlet_manager'
+```
+gem build orvibo-ruby.gemspec
+gem install orvibo-s20-0.1.0.gem
+```
 
- m = Orvibo::S20OutletManager.new
- #m.discoverOutlets()
- s = m.discoverOutlets()["192.168.0.241"]
- m.subscribe(s); m.powerOn(s); sleep 5; m.subscribe(s); m.powerOff(s)
+## Usage (example)
+
+``` 
+require 'orvibo-s20'
+
+m = OrviboS20.new(broadcast_address = '192.168.0.255', timeout = 2)
+s = m.discoverOutlets()["192.168.0.241"] 
+m.subscribe(s); m.powerOn(s); sleep 5; m.subscribe(s); m.powerOff(s)
+
 ```
 
 ## License
