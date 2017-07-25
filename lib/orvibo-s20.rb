@@ -69,13 +69,18 @@ class OrviboS20
     return outlets
   end
 
+  def createOutlet(mac,ip)
+    outlet = OrviboS20Outlet.new(mac: mac, state: nil, ip: ip, revision: nil)
+    refresh(outlet)
+    outlet
+  end
+
   def refresh(outlet)
     s_msg = DISCOVERY_MSG + outlet.mac + SIX_SPACES
     sendBroadcastMessage(s_msg)
     receiveMsg do |msg, addr|
       if msg[0..1].unpackHex == MAGIC_KEY && msg[2..3].unpackSInt == DISCOVERY_MSG_SIZE && msg[4..5].unpackHex == DISCOVER_CMD
         data = getDiscoveryFields(msg, addr)
-        puts data.time
         outlet.ip = data.ip
       end
     end
@@ -106,7 +111,7 @@ class OrviboS20
     s_msg = POWER_TOGGLE_MSG + outlet.mac + SIX_SPACES + FOUR_ZEROS + ONT
     sendMessage(s_msg, outlet)
     receiveMsg do |msg, addr|
-      puts "Received: #{msg.unpackHex}"
+      # puts "Received: #{msg.unpackHex}"
     end
   end
 
@@ -114,8 +119,13 @@ class OrviboS20
     s_msg = POWER_TOGGLE_MSG + outlet.mac + SIX_SPACES + FOUR_ZEROS + OFFT
     sendMessage(s_msg, outlet)
     receiveMsg do |msg, addr|
-      puts "Received: #{msg.unpackHex}"
+      # puts "Received: #{msg.unpackHex}"
     end
+  end
+
+  def outletActive?(outlet)
+    refresh(outlet)
+    outlet.state == '01'
   end
 
   def addTimer(timerEvent)
@@ -127,7 +137,7 @@ class OrviboS20
   end
 
   def setName(name)
-    # Set the name for the socket
+    # Set the name for the outlet
   end
 
   private
